@@ -1,0 +1,7 @@
+{
+  "name": "VPF Attendance Tracker",
+  "description": "A web application for VPF to track employee attendance using photo verification. Employees can check in by taking a picture, and administrators can view a log of all attendance records.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

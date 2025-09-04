@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VPF Attendance Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- The required Google Identity Services script -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      .checkmark__circle {
+        stroke-dasharray: 166;
+        stroke-dashoffset: 166;
+        stroke-width: 2;
+        stroke-miterlimit: 10;
+        stroke: #0ea5e9; /* sky-500 */
+        fill: none;
+        animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+      }
+      .checkmark {
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        display: block;
+        stroke-width: 2;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        margin: 10% auto;
+        box-shadow: inset 0px 0px 0px #0ea5e9;
+        animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+      }
+      .checkmark__check {
+        transform-origin: 50% 50%;
+        stroke-dasharray: 48;
+        stroke-dashoffset: 48;
+        animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+      }
+      @keyframes stroke {
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+      @keyframes scale {
+        0%, 100% {
+          transform: none;
+        }
+        50% {
+          transform: scale3d(1.1, 1.1, 1);
+        }
+      }
+      @keyframes fill {
+        100% {
+          box-shadow: inset 0px 0px 0px 60px #0ea5e9;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.8.2",
+    "react/": "https://esm.sh/react@^19.1.1/",
+    "react": "https://esm.sh/react@^19.1.1",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.1/",
+    "@google/genai": "https://esm.sh/@google/genai"
+  }
+}
+</script>
+</head>
+  <body class="bg-slate-50 dark:bg-gray-950">
+    <div id="root"></div>
+    <script>
+      // The Apps Script URL is the public endpoint for our secure backend.
+      // The API key is stored securely within the Apps Script.
+      window.process = { 
+        env: { 
+          // PLEASE REPLACE with your actual Google Apps Script Web App URL.
+          APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbxjGoZcoenBVlhC6w6wuNjzcq6akgRW0_5S3DUZ_dnhcdPxRFpWv3ME_YgWTN25h2AoQQ/exec",
+          // CRITICAL FIX: You MUST replace the placeholder below with your actual Google Client ID from the Google Cloud Console.
+          GOOGLE_CLIENT_ID: "701163436416-qhftqh81nol5a4sd2loo3dfhr8hg9ul6.apps.googleusercontent.com"
+        } 
+      };
+    </script>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
