@@ -12,8 +12,7 @@ interface EmployeeContextType {
 
 export const EmployeeContext = createContext<EmployeeContextType | undefined>(undefined);
 
-const APPS_SCRIPT_URL = process.env.APPS_SCRIPT_URL as string;
-
+const APPS_SCRIPT_URL = import.meta.env.VITE_APPS_SCRIPT_URL  as string;
 
 // Helper to read file as base64 string
 const fileToBase64 = (file: File): Promise<string> => {
