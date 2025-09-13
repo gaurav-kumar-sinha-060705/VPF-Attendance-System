@@ -11,7 +11,7 @@ interface AttendanceContextType {
 
 export const AttendanceContext = createContext<AttendanceContextType | undefined>(undefined);
 
-const APPS_SCRIPT_URL = process.env.APPS_SCRIPT_URL as string;
+const APPS_SCRIPT_URL = import.meta.env.VITE_APPS_SCRIPT_URL  as string;
 
 export const AttendanceProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [logs, setLogs] = useState<AttendanceLog[]>([]);
